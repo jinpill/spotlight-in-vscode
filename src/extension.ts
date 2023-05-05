@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import calculate from "./features/calculate";
+import px2rem from "./features/px2rem";
 
 // 확장프로그램이 실행될 때 가장 먼저 실행되는 메서드.
 export const activate = (context: vscode.ExtensionContext) => {
@@ -18,9 +19,19 @@ export const activate = (context: vscode.ExtensionContext) => {
       const position = editor.selection.active;
       if (!position) return;
 
-      if (!calculate.check(input)) return;
-      const result = calculate.run(input);
-      editBuilder.insert(position, result);
+      // 연산식인 경우 실행.
+      if (calculate.check(input)) {
+        const result = calculate.run(input);
+        editBuilder.insert(position, result);
+        return;
+      }
+
+      // to rem 키워드가 포함된 경우 실행.
+      if (px2rem.check(input)) {
+        const result = px2rem.run(input);
+        editBuilder.insert(position, result);
+        return;
+      }
     });
   };
 
