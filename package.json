@@ -2,7 +2,15 @@
   "name": "vscode-spotlight",
   "displayName": "vscode-spotlight",
   "description": "It is the extension to use 'Spotlight' of MacOS in Visual Studio Code.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": {
+    "name": "jinpill",
+    "email": "hello@jinpill.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinpill/vscode-extension"
+  },
   "engines": {
     "vscode": "^1.78.0"
   },
