@@ -15,7 +15,5 @@ Enter the text you want to calculate, and then press `enter` to insert the resul
 ## Features
 
 - Calculate the result of the expression.
-
 - Convert pixels to rem unit.
-
 - `[TODO]` Create a new file with code snippets.
