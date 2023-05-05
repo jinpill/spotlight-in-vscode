@@ -14,8 +14,15 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-spotlight.helloWorld",
-        "title": "Hello World"
+        "command": "vscode-spotlight.activate",
+        "title": "Spotlight in VSCode"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscode-spotlight.activate",
+        "key": "shift+space",
+        "when": "editorTextFocus"
       }
     ]
   },

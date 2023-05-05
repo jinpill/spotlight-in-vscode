@@ -1,26 +1,35 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import calculate from "./features/calculate";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+// 확장프로그램이 실행될 때 가장 먼저 실행되는 메서드.
+export const activate = (context: vscode.ExtensionContext) => {
+  console.log("🚀 VSCode Spotlight Extension is now active!");
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-spotlight" is now active!');
+  const runExtension = async () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) return;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vscode-spotlight.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from vscode-spotlight!');
-	});
+    const input = await vscode.window.showInputBox({
+      placeHolder: "Spotlight in VSCode",
+    });
+    if (!input) return;
 
-	context.subscriptions.push(disposable);
-}
+    editor.edit((editBuilder) => {
+      const position = editor.selection.active;
+      if (!position) return;
 
-// This method is called when your extension is deactivated
-export function deactivate() {}
+      if (!calculate.check(input)) return;
+      const result = calculate.run(input);
+      editBuilder.insert(position, result);
+    });
+  };
+
+  // `package.json` 파일의 `contributes.commands`에 정의된 명령어를 등록.
+  const disposable = vscode.commands.registerCommand("vscode-spotlight.activate", runExtension);
+
+  // 등록된 명령어를 확장프로그램이 종료될 때 폐기.
+  context.subscriptions.push(disposable);
+};
+
+// 확장프로그램이 종료될 때 실행되는 메서드.
+export const deactivate = () => {};
