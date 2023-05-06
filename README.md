@@ -8,7 +8,7 @@ In the editor, you can use `shift+ctrl+space` or `shift+cmd+space` to open the s
 
 Enter the text you want to calculate, and then press `enter` to insert the result into the editor.
 
-\!\[feature X\]\(images/feature-x.png\)
+![usage](https://drive.google.com/uc?export=view&id=1JJSMjrpPUw9mzovVwuuOBbP4b-m1HDcW)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
