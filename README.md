@@ -1,6 +1,6 @@
 # Spotlight in VSCode
 
-This is the extension for using **Spotlight** of MacOS **in Visual Studio Code**.
+This is the extension for using commands like **Spotlight** of MacOS **in Visual Studio Code**. (But, it is not a real Spotlight.)
 
 ## Usage
 
@@ -14,4 +14,5 @@ Enter the text you want to calculate, and then press `enter` to insert the resul
 
 - Calculate the result of the expression.
 - Convert pixels to rem unit.
+- Convert rem to pixels unit.
 - `[TODO]` Create a new file with code snippets.

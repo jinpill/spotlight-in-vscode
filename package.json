@@ -4,7 +4,7 @@
   "icon": "build/icon.png",
   "displayName": "Spotlight in VSCode",
   "description": "It is the extension to use 'Spotlight' of MacOS in Visual Studio Code.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "jinpill",
     "email": "hello@jinpill.dev"
